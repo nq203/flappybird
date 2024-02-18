@@ -15,7 +15,6 @@ class Pipe extends SpriteComponent with HasGameRef<FlappyBird>{
   final PipePosition pipePosition;
   @override
   Future<void> onLoad() async{
-    position.x = gameRef.size.x;
     // TODO: implement onLoad
     final pipe = await Flame.images.load(Assets.pipe);
     final pipeRotated = await Flame.images.load(Assets.pipeRotated);
@@ -32,17 +31,5 @@ class Pipe extends SpriteComponent with HasGameRef<FlappyBird>{
     }
     add(RectangleHitbox());
   }
-@override
-void update(double dt) {
-  // TODO: implement update
-  super.update(dt);
-  position.x -= Config.gameSpeed*dt;
-  if (position.x  < -size.x){
-    removeFromParent();
-  }
-  // if(gameRef.isHit){
-  //   removeFromParent();
-  //   gameRef.isHit = false;
-  // }
-}
+
 }
